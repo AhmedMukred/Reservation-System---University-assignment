@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="DataSet3" targetNamespace="http://tempuri.org/DataSet3.xsd" xmlns:mstns="http://tempuri.org/DataSet3.xsd" xmlns="http://tempuri.org/DataSet3.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="BookingConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="BookingConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.Assigment2.Properties.Settings.GlobalReference.Default.BookingConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="DataTable1TableAdapter" GeneratorDataComponentClassName="DataTable1TableAdapter" Name="DataTable1" UserDataComponentName="DataTable1TableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BookingConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT Booking.CustomerID, Customer.Name, Customer.Address, Booking.Date, Booking.Type, Booking.Package, Booking.Hotel, Booking.Room, Booking.HotelNight, Booking.Deposit, Booking.Charge, Booking.Discount, Booking.Total, Booking.DepositStatus, Payment.BookingNo, Payment.Amount, Payment.Date AS Expr1, Customer.ID, Payment.ID AS Expr2, Payment.Type AS Expr3
+FROM  Booking INNER JOIN
+         Customer ON Booking.CustomerID = Customer.ID INNER JOIN
+         Payment ON Booking.ID = Payment.BookingNo
+WHERE (Payment.ID =
+             (SELECT MAX(ID) AS Expr1
+           FROM   Payment AS Payment_1))</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="Name" DataSetColumn="Name" />
+              <Mapping SourceColumn="Address" DataSetColumn="Address" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Package" DataSetColumn="Package" />
+              <Mapping SourceColumn="Hotel" DataSetColumn="Hotel" />
+              <Mapping SourceColumn="Room" DataSetColumn="Room" />
+              <Mapping SourceColumn="HotelNight" DataSetColumn="HotelNight" />
+              <Mapping SourceColumn="Deposit" DataSetColumn="Deposit" />
+              <Mapping SourceColumn="Charge" DataSetColumn="Charge" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="DepositStatus" DataSetColumn="DepositStatus" />
+              <Mapping SourceColumn="BookingNo" DataSetColumn="BookingNo" />
+              <Mapping SourceColumn="Amount" DataSetColumn="Amount" />
+              <Mapping SourceColumn="Expr1" DataSetColumn="Expr1" />
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="Expr2" DataSetColumn="Expr2" />
+              <Mapping SourceColumn="Expr3" DataSetColumn="Expr3" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BookingTableAdapter" GeneratorDataComponentClassName="BookingTableAdapter" Name="Booking" UserDataComponentName="BookingTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="BookingConnectionString (Settings)" DbObjectName="Booking.dbo.Booking" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [booking] WHERE (([ID] = @Original_ID) AND ((@IsNull_CustomerID = 1 AND [CustomerID] IS NULL) OR ([CustomerID] = @Original_CustomerID)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_Package = 1 AND [Package] IS NULL) OR ([Package] = @Original_Package)) AND ((@IsNull_Hotel = 1 AND [Hotel] IS NULL) OR ([Hotel] = @Original_Hotel)) AND ((@IsNull_Room = 1 AND [Room] IS NULL) OR ([Room] = @Original_Room)) AND ((@IsNull_HotelNight = 1 AND [HotelNight] IS NULL) OR ([HotelNight] = @Original_HotelNight)) AND ((@IsNull_Deposit = 1 AND [Deposit] IS NULL) OR ([Deposit] = @Original_Deposit)) AND ((@IsNull_Charge = 1 AND [Charge] IS NULL) OR ([Charge] = @Original_Charge)) AND ((@IsNull_Discount = 1 AND [Discount] IS NULL) OR ([Discount] = @Original_Discount)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_DepositStatus = 1 AND [DepositStatus] IS NULL) OR ([DepositStatus] = @Original_DepositStatus)) AND ((@IsNull_TotalPaid = 1 AND [TotalPaid] IS NULL) OR ([TotalPaid] = @Original_TotalPaid)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CustomerID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CustomerID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Package" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Package" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Hotel" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Hotel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Room" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Room" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HotelNight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_HotelNight" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Deposit" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Charge" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Discount" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Total" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Total" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DepositStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DepositStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TotalPaid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_TotalPaid" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [booking] ([CustomerID], [Date], [Type], [Package], [Hotel], [Room], [HotelNight], [Deposit], [Charge], [Discount], [Total], [Status], [DepositStatus], [TotalPaid]) VALUES (@CustomerID, @Date, @Type, @Package, @Hotel, @Room, @HotelNight, @Deposit, @Charge, @Discount, @Total, @Status, @DepositStatus, @TotalPaid);
+SELECT ID, CustomerID, Date, Type, Package, Hotel, Room, HotelNight, Deposit, Charge, Discount, Total, Status, DepositStatus, TotalPaid FROM Booking WHERE (ID = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CustomerID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Package" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Hotel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Room" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@HotelNight" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Deposit" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Discount" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Total" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DepositStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@TotalPaid" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>Select * from booking where date=@date</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="date" ColumnName="Date" DataSourceName="Booking.dbo.Booking" DataTypeServer="date" DbType="AnsiString" Direction="Input" ParameterName="@date" Precision="0" ProviderType="Date" Scale="0" Size="3" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [booking] SET [CustomerID] = @CustomerID, [Date] = @Date, [Type] = @Type, [Package] = @Package, [Hotel] = @Hotel, [Room] = @Room, [HotelNight] = @HotelNight, [Deposit] = @Deposit, [Charge] = @Charge, [Discount] = @Discount, [Total] = @Total, [Status] = @Status, [DepositStatus] = @DepositStatus, [TotalPaid] = @TotalPaid WHERE (([ID] = @Original_ID) AND ((@IsNull_CustomerID = 1 AND [CustomerID] IS NULL) OR ([CustomerID] = @Original_CustomerID)) AND ((@IsNull_Date = 1 AND [Date] IS NULL) OR ([Date] = @Original_Date)) AND ((@IsNull_Type = 1 AND [Type] IS NULL) OR ([Type] = @Original_Type)) AND ((@IsNull_Package = 1 AND [Package] IS NULL) OR ([Package] = @Original_Package)) AND ((@IsNull_Hotel = 1 AND [Hotel] IS NULL) OR ([Hotel] = @Original_Hotel)) AND ((@IsNull_Room = 1 AND [Room] IS NULL) OR ([Room] = @Original_Room)) AND ((@IsNull_HotelNight = 1 AND [HotelNight] IS NULL) OR ([HotelNight] = @Original_HotelNight)) AND ((@IsNull_Deposit = 1 AND [Deposit] IS NULL) OR ([Deposit] = @Original_Deposit)) AND ((@IsNull_Charge = 1 AND [Charge] IS NULL) OR ([Charge] = @Original_Charge)) AND ((@IsNull_Discount = 1 AND [Discount] IS NULL) OR ([Discount] = @Original_Discount)) AND ((@IsNull_Total = 1 AND [Total] IS NULL) OR ([Total] = @Original_Total)) AND ((@IsNull_Status = 1 AND [Status] IS NULL) OR ([Status] = @Original_Status)) AND ((@IsNull_DepositStatus = 1 AND [DepositStatus] IS NULL) OR ([DepositStatus] = @Original_DepositStatus)) AND ((@IsNull_TotalPaid = 1 AND [TotalPaid] IS NULL) OR ([TotalPaid] = @Original_TotalPaid)));
+SELECT ID, CustomerID, Date, Type, Package, Hotel, Room, HotelNight, Deposit, Charge, Discount, Total, Status, DepositStatus, TotalPaid FROM Booking WHERE (ID = @ID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@CustomerID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Package" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Hotel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Room" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@HotelNight" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Deposit" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Discount" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Total" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@DepositStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@TotalPaid" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CustomerID" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_CustomerID" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="CustomerID" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Date" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Date" Direction="Input" ParameterName="@Original_Date" Precision="0" ProviderType="Date" Scale="0" Size="0" SourceColumn="Date" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Type" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Type" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Type" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Package" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Package" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Package" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Hotel" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Hotel" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Hotel" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Room" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Room" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Room" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_HotelNight" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_HotelNight" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="HotelNight" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Deposit" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Deposit" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Deposit" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Charge" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Charge" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Charge" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Discount" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Discount" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Discount" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Total" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_Total" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="Total" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Status" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_Status" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="Status" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DepositStatus" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="String" Direction="Input" ParameterName="@Original_DepositStatus" Precision="0" ProviderType="NVarChar" Scale="0" Size="0" SourceColumn="DepositStatus" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_TotalPaid" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_TotalPaid" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="TotalPaid" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="ID" ColumnName="ID" DataSourceName="Booking.dbo.Booking" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@ID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="ID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="CustomerID" DataSetColumn="CustomerID" />
+              <Mapping SourceColumn="Date" DataSetColumn="Date" />
+              <Mapping SourceColumn="Type" DataSetColumn="Type" />
+              <Mapping SourceColumn="Package" DataSetColumn="Package" />
+              <Mapping SourceColumn="Hotel" DataSetColumn="Hotel" />
+              <Mapping SourceColumn="Room" DataSetColumn="Room" />
+              <Mapping SourceColumn="HotelNight" DataSetColumn="HotelNight" />
+              <Mapping SourceColumn="Deposit" DataSetColumn="Deposit" />
+              <Mapping SourceColumn="Charge" DataSetColumn="Charge" />
+              <Mapping SourceColumn="Discount" DataSetColumn="Discount" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+              <Mapping SourceColumn="Status" DataSetColumn="Status" />
+              <Mapping SourceColumn="DepositStatus" DataSetColumn="DepositStatus" />
+              <Mapping SourceColumn="TotalPaid" DataSetColumn="TotalPaid" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="DataSet3" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet3" msprop:Generator_UserDSName="DataSet3">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DataTable1" msprop:Generator_TableClassName="DataTable1DataTable" msprop:Generator_TableVarName="tableDataTable1" msprop:Generator_TablePropName="DataTable1" msprop:Generator_RowDeletingName="DataTable1RowDeleting" msprop:Generator_RowChangingName="DataTable1RowChanging" msprop:Generator_RowEvHandlerName="DataTable1RowChangeEventHandler" msprop:Generator_RowDeletedName="DataTable1RowDeleted" msprop:Generator_UserTableName="DataTable1" msprop:Generator_RowChangedName="DataTable1RowChanged" msprop:Generator_RowEvArgName="DataTable1RowChangeEvent" msprop:Generator_RowClassName="DataTable1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Name" msprop:Generator_ColumnVarNameInTable="columnName" msprop:Generator_ColumnPropNameInRow="Name" msprop:Generator_ColumnPropNameInTable="NameColumn" msprop:Generator_UserColumnName="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Package" msprop:Generator_ColumnVarNameInTable="columnPackage" msprop:Generator_ColumnPropNameInRow="Package" msprop:Generator_ColumnPropNameInTable="PackageColumn" msprop:Generator_UserColumnName="Package" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hotel" msprop:Generator_ColumnVarNameInTable="columnHotel" msprop:Generator_ColumnPropNameInRow="Hotel" msprop:Generator_ColumnPropNameInTable="HotelColumn" msprop:Generator_UserColumnName="Hotel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Room" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_UserColumnName="Room" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HotelNight" msprop:Generator_ColumnVarNameInTable="columnHotelNight" msprop:Generator_ColumnPropNameInRow="HotelNight" msprop:Generator_ColumnPropNameInTable="HotelNightColumn" msprop:Generator_UserColumnName="HotelNight" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deposit" msprop:Generator_ColumnVarNameInTable="columnDeposit" msprop:Generator_ColumnPropNameInRow="Deposit" msprop:Generator_ColumnPropNameInTable="DepositColumn" msprop:Generator_UserColumnName="Deposit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Charge" msprop:Generator_ColumnVarNameInTable="columnCharge" msprop:Generator_ColumnPropNameInRow="Charge" msprop:Generator_ColumnPropNameInTable="ChargeColumn" msprop:Generator_UserColumnName="Charge" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DepositStatus" msprop:Generator_ColumnVarNameInTable="columnDepositStatus" msprop:Generator_ColumnPropNameInRow="DepositStatus" msprop:Generator_ColumnPropNameInTable="DepositStatusColumn" msprop:Generator_UserColumnName="DepositStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BookingNo" msprop:Generator_ColumnVarNameInTable="columnBookingNo" msprop:Generator_ColumnPropNameInRow="BookingNo" msprop:Generator_ColumnPropNameInTable="BookingNoColumn" msprop:Generator_UserColumnName="BookingNo" type="xs:int" minOccurs="0" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Expr1" msprop:Generator_ColumnVarNameInTable="columnExpr1" msprop:Generator_ColumnPropNameInRow="Expr1" msprop:Generator_ColumnPropNameInTable="Expr1Column" msprop:Generator_UserColumnName="Expr1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Expr2" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnExpr2" msprop:Generator_ColumnPropNameInRow="Expr2" msprop:Generator_ColumnPropNameInTable="Expr2Column" msprop:Generator_UserColumnName="Expr2" type="xs:int" />
+              <xs:element name="Expr3" msprop:Generator_ColumnVarNameInTable="columnExpr3" msprop:Generator_ColumnPropNameInRow="Expr3" msprop:Generator_ColumnPropNameInTable="Expr3Column" msprop:Generator_UserColumnName="Expr3" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="Booking" msprop:Generator_TableClassName="BookingDataTable" msprop:Generator_TableVarName="tableBooking" msprop:Generator_TablePropName="Booking" msprop:Generator_RowDeletingName="BookingRowDeleting" msprop:Generator_RowChangingName="BookingRowChanging" msprop:Generator_RowEvHandlerName="BookingRowChangeEventHandler" msprop:Generator_RowDeletedName="BookingRowDeleted" msprop:Generator_UserTableName="Booking" msprop:Generator_RowChangedName="BookingRowChanged" msprop:Generator_RowEvArgName="BookingRowChangeEvent" msprop:Generator_RowClassName="BookingRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="CustomerID" msprop:Generator_ColumnVarNameInTable="columnCustomerID" msprop:Generator_ColumnPropNameInRow="CustomerID" msprop:Generator_ColumnPropNameInTable="CustomerIDColumn" msprop:Generator_UserColumnName="CustomerID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Type" msprop:Generator_ColumnVarNameInTable="columnType" msprop:Generator_ColumnPropNameInRow="Type" msprop:Generator_ColumnPropNameInTable="TypeColumn" msprop:Generator_UserColumnName="Type" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Package" msprop:Generator_ColumnVarNameInTable="columnPackage" msprop:Generator_ColumnPropNameInRow="Package" msprop:Generator_ColumnPropNameInTable="PackageColumn" msprop:Generator_UserColumnName="Package" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Hotel" msprop:Generator_ColumnVarNameInTable="columnHotel" msprop:Generator_ColumnPropNameInRow="Hotel" msprop:Generator_ColumnPropNameInTable="HotelColumn" msprop:Generator_UserColumnName="Hotel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Room" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_UserColumnName="Room" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HotelNight" msprop:Generator_ColumnVarNameInTable="columnHotelNight" msprop:Generator_ColumnPropNameInRow="HotelNight" msprop:Generator_ColumnPropNameInTable="HotelNightColumn" msprop:Generator_UserColumnName="HotelNight" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Deposit" msprop:Generator_ColumnVarNameInTable="columnDeposit" msprop:Generator_ColumnPropNameInRow="Deposit" msprop:Generator_ColumnPropNameInTable="DepositColumn" msprop:Generator_UserColumnName="Deposit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Charge" msprop:Generator_ColumnVarNameInTable="columnCharge" msprop:Generator_ColumnPropNameInRow="Charge" msprop:Generator_ColumnPropNameInTable="ChargeColumn" msprop:Generator_UserColumnName="Charge" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Discount" msprop:Generator_ColumnVarNameInTable="columnDiscount" msprop:Generator_ColumnPropNameInRow="Discount" msprop:Generator_ColumnPropNameInTable="DiscountColumn" msprop:Generator_UserColumnName="Discount" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Total" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_UserColumnName="Total" type="xs:decimal" minOccurs="0" />
+              <xs:element name="Status" msprop:Generator_ColumnVarNameInTable="columnStatus" msprop:Generator_ColumnPropNameInRow="Status" msprop:Generator_ColumnPropNameInTable="StatusColumn" msprop:Generator_UserColumnName="Status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepositStatus" msprop:Generator_ColumnVarNameInTable="columnDepositStatus" msprop:Generator_ColumnPropNameInRow="DepositStatus" msprop:Generator_ColumnPropNameInTable="DepositStatusColumn" msprop:Generator_UserColumnName="DepositStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalPaid" msprop:Generator_ColumnVarNameInTable="columnTotalPaid" msprop:Generator_ColumnPropNameInRow="TotalPaid" msprop:Generator_ColumnPropNameInTable="TotalPaidColumn" msprop:Generator_UserColumnName="TotalPaid" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:Booking" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
